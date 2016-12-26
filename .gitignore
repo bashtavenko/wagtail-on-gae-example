@@ -1,0 +1,6 @@
+lib/
+static/
+*.py[co]
+
+*.swp
+
