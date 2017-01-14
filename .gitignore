@@ -3,4 +3,5 @@ static/
 *.py[co]
 
 *.swp
-
+.storage/
+*.swo

@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 from __future__ import absolute_import, unicode_literals
+from djangae.settings_base import *
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
@@ -49,15 +50,21 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    'djangae', 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
+
+    # Blows up with ContentType.DoesNotExist()     
+    #'djangae.contrib.contenttypes',
+
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'djangae.contrib.security',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -66,6 +73,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'djangae.contrib.security.middleware.AppEngineSecurityMiddleware',
 
     'wagtail.wagtailcore.middleware.SiteMiddleware',
     'wagtail.wagtailredirects.middleware.RedirectMiddleware',
@@ -125,7 +133,8 @@ else:
             'PORT': '3306',
             'NAME': 'blog',
             'USER': 'root',
-            'PASSWORD': os.environ.get('PASSWORD', '')
+	    # Can't have blank password            
+	    #'PASSWORD': os.environ.get('PASSWORD', '')
         }
     }
 # [END db_setup]

@@ -1,22 +1,23 @@
 This is a bare bone example of running [Wagtail](https://github.com/wagtail/wagtail) on Google App Engine Standard Environment. Since Wagtail is Django-based CMS, it is runs almost out of the box on GAE with a few minor tweaks. The basis of this is [Running Django on App Engine standard environment](https://cloud.google.com/python/django/appengine) tutorial.
 
+In addition to the bare bone example, there's another nice library called [Djangae](https://github.com/potatolondon/djangae) which provides many helpful features notably storage backend for the blog images, authentication, Datastore backend and others.
+
+
 ##Setup on Ubuntu 14.0.4 LTS
+Follow Django on GAE tutorial to setup Cloud SQL and proxy.
 
 Clone the repo.
 
-Follow Django on GAE tutorial to setup Cloud SQL and proxy.
-
 Configure database settings in env.yaml 
 
-pip install -r requirements.txt -t lib/
+./install_deps
 
-python manage.py migrate
+./manage.py migrate
 
-python manage.py createsuperuser
+./manage.py createsuperuser
 
-python manage.py runserver
+./manage.py runserver
 
-python manage.py collectstatic
+./manage.py collectstatic
 
 gcloud app deploy
-
