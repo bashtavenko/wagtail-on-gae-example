@@ -31,3 +31,8 @@ skip_files:
 - ^(.*/)?\..*$
 - ^env/.*$
 - ^(lib/PIL*)
+
+# env.yaml has 'env_variable' section with environment variables
+# that need to be set prior to deployment.
+includes:
+- env.yaml

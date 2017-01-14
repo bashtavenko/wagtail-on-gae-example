@@ -6,7 +6,7 @@ Clone the repo.
 
 Follow Django on GAE tutorial to setup Cloud SQL and proxy.
 
-Configure database settings in mysite/settings/base.py
+Configure database settings in env.yaml 
 
 pip install -r requirements.txt -t lib/
 

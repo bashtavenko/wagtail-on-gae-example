@@ -105,10 +105,10 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/cloudsql/[INSTANCE]',
+            'HOST': os.environ.get('DATABASE_HOST', ''),
             'NAME': 'blog',
             'USER': 'root',
-            'PASSWORD': '[PASSWORD]',
+            'PASSWORD': os.environ.get('PASSWORD', '')
         }
     }
 else:
@@ -125,7 +125,7 @@ else:
             'PORT': '3306',
             'NAME': 'blog',
             'USER': 'root',
-            'PASSWORD': '[PASSWORD]',
+            'PASSWORD': os.environ.get('PASSWORD', '')
         }
     }
 # [END db_setup]
