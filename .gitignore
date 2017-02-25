@@ -5,3 +5,6 @@ static/
 *.swp
 .storage/
 *.swo
+env.yaml
+
+vnv/
